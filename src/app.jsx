@@ -1,5 +1,21 @@
-import * as React from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import ErrorPage from "./pages/ErrorPage";
+import Nav from "./components/Nav";
 
-const root = createRoot(document.body);
-root.render(<h2>Hello from React!</h2>);
+const App = () => {
+  return (
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+    </>
+  );
+};
+
+export default App;
